@@ -3,7 +3,7 @@ name = "dropbox_clone"
 version = "0.1.0"
 description = "a project the clones dropbox with some modifications to test how dropbox works. It is also a proof of concept project."
 authors = ["Mustafa Prodhan <mustafa.prodhan.317@gmail.com>"]
-license = "MIt"
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
