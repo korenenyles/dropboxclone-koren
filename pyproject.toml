@@ -8,10 +8,11 @@ license = "MIt"
 [tool.poetry.dependencies]
 python = "^3.8"
 django-mptt = "^0.11.0"
-autopep8 = "^1.5.3"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.3"
+django-environ = "^0.4.5"
+autopep8 = "^1.5.3"
 
 [build-system]
 requires = ["poetry>=0.12"]
