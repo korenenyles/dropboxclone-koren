@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 '''
 __author__ = [
     mprodhan,
+    https://stackoverflow.com/questions/58558989/what-does-djangos-property-do,
     https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-user-model/
     ]
 '''
@@ -33,7 +34,7 @@ class DropBoxUserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, display_name, password=None):
-        user = self.create_user(email, password=password,
+        user = self.create_user(email, display_name, password=password,
             is_staff=True, is_admin=True)
         return user
 
