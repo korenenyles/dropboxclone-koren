@@ -1,5 +1,5 @@
 from django import forms
-from django.contrrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from dropbox_user.models import DropBoxUser, DropBoxUserManager
 from dropbox_user.forms import DropBoxUserAdminForm
 

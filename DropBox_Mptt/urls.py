@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from dropbox_user.urls import urlpatterns as user_urls
+from dropbox_file.urls import urlpatterns as file_urls
+from authentication.urls import urlpatterns as auth_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+urlpatterns += user_urls
+urlpatterns += file_urls
+urlpatterns += auth_urls
