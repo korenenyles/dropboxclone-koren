@@ -34,4 +34,10 @@
     position: fixed;
     top: 0;
     width: 100%;
+
   }
+
+  @viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+  } 
