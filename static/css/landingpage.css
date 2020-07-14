@@ -1,0 +1,41 @@
+/* #4CAF50 green color borders and highlights */
+
+body{
+    background-color: rgb(221, 221, 221);
+}
+
+.main{
+    background-color: rgb(221, 221, 221);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.page-header{
+
+    color: #333;
+}
+
+.main-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    margin-top: 15px;
+    
+    width: 100%;
+    
+}
+
+.content{
+    border: 5px solid #4CAF50;
+    border-radius: 25%;
+    margin: auto;
+    padding: 30px;
+
+}
+
+
+
+
+  
