@@ -1,3 +1,13 @@
+
+# from django.contrib import admin
+# from django.contrib.auth import UserAdmin
+# from dropbox_user.models import DropBoxUser, DropBoxUserManager
+# from dropbox_user.forms import RegisterForm, UserAdminCreationForm, UserAdminChangeForm
+
+# class DropBoxUserAdminForm(UserAdmin):
+#     form = UserAdminChangeForm
+#     add_form = UserAdminCreationForm
+
 from django.contrib import admin
 from .models import DropBoxUser
 from django.contrib.auth.admin import UserAdmin
@@ -30,6 +40,7 @@ admin.site.register(DropBoxUser, DropBoxUserAdmin)
 #     # form = UserAdminChangeForm
 #     # add_form = UserAdminCreationForm
 
+
 #     list_display = ('email', 'admin')
 #     list_filter = ('admin', 'staff', 'active')
 #     field_sets = (
@@ -46,4 +57,7 @@ admin.site.register(DropBoxUser, DropBoxUserAdmin)
 #     )
 
 #     admin.site.register(DropBoxUser)
+
+#     admin.site.register(DropBoxUserManager)
+
 #     admin.site.register(DropBoxUserManager)
