@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 </head>
 <body>
+
     <div class="main">
         <div class="page-header">
             <h1>DropBox Clone </h1>
@@ -17,8 +18,17 @@
             <a href="">Logout</a>
         </div> 
 
-
-
+        <div>
+          <h1 id = "header">DropBox Clone </h1>
+          <form action="" method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <input type="submit" value="Submit">
+          </form>
+          <br />
+          <br />
+          <a href="/">Return To The Homepage</a>
+        </div>
 
 
 
@@ -26,5 +36,7 @@
         {% comment %} this is where all our date will be placed {% endcomment %}
     </div>
     
+
+
 </body>
 </html>
