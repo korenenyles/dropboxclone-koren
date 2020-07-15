@@ -37,7 +37,7 @@ def fileadd(request):
             new_file.uploaded_by = request.user
             new_file.save()
             messages.info(request, "File created successfully!")
-            return HttpResponseRedirect(reverse('file-list'))
+            return HttpResponseRedirect(reverse('filelist'))
         else:
             form = AddFileForm()
     return render(request, html, {"form": form})
@@ -53,7 +53,7 @@ def folderadd(request):
             new_file.uploaded_by = request.user
             new_file.save()
             messages.info(request, "Folder created successfully!")
-            return HttpResponseRedirect(reverse('file-list'))
+            return HttpResponseRedirect(reverse('filelist'))
         else:
             form = AddFileForm()
     return render(request, html, {"form": form})

@@ -11,8 +11,6 @@
             <h1>DropBox Clone </h1>
         </div>
         <div class="topnav">
-<<<<<<< HEAD
-<<<<<<< HEAD
             <a href={%url "landingpage"%}>Home</a>
             <a href={% url "filelist"%}>My Files</a>
             <a href={% url "userpage"%}>Account</a>
@@ -23,18 +21,9 @@
                 <h1>My Files:</h1>
             </div>
         </div>
-=======
-=======
->>>>>>> 05d9e63b5795414c1995882b5e877186f9b31d12
-            <a class="" href="/">Home</a>
-            <a href="{% url 'file-list'%}">My Files</a>
-            <a href="">Account</a>
-            <a href="">Logout</a>
-        </div> 
 <ul>
 {% if user.is_authenticated %}
 {% load mptt_tags %}
-<ul>
     {% recursetree files %}
         <li>
             {{ node.filename }}
@@ -54,18 +43,6 @@
 <br>
 <a href="{% url 'file-add'%}">Add A File</a>
 <a href="{% url 'folder-add'%}">Create A Folder</a>
-<<<<<<< HEAD
->>>>>>> Upload file seems to work
-=======
->>>>>>> 05d9e63b5795414c1995882b5e877186f9b31d12
-
-
-
-
-
-
-
-        {% comment %} this is where all our date will be placed {% endcomment %}
     </div>
     
 </body>
