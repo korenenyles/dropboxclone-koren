@@ -5,6 +5,8 @@ from authentication.forms import LoginForm, SignUpForm
 from django.views.generic import View
 from dropbox_user.models import DropBoxUser
 
+__author__ = ["https://simpleisbetterthancomplex.com/tips/2016/09/06/django-tip-14-messages-framework.html"]
+
 class LoginView(View):
     def get(self, request):
         form = LoginForm()
