@@ -37,14 +37,13 @@ def folderadd(request):
     html = 'general_form.html'
     form = AddFolderForm()
     if request.method == "POST":
-        form = AddFolderForm(request.POST)
+        form = AddFolderForm(request.POST, request.FILES)
         if form.is_valid():
-            data = form.cleaned_data
-            FileObject.objects.create(
-                filename=data['filename'],
-                parent=data['parent']
-            )
+            new_file = form.save(commit=False)
+            new_file.uploaded_by = request.user
+            new_file.save()
             messages.info(request, "Folder created successfully!")
-            return HttpResponseRedirect(reverse('filelist'))
-
+            return HttpResponseRedirect(reverse('file-list'))
+        else:
+            form = AddFileForm()
     return render(request, html, {"form": form})
