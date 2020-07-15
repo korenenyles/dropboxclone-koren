@@ -2,8 +2,8 @@
     {% load static %}
 <head>
     <title>Dropbox Clone</title>
-    <link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landingpage.css' %}" >
+    <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
 </head>
 <body>
 
@@ -12,18 +12,18 @@
             <h1>DropBox Clone </h1>
         </div>
         <div class="topnav">
-            <a href="">Home</a>
-            <a href="">My Files</a>
-            <a href="">Account</a>
+            <a href={%url "landingpage"%}>Home</a>
+            <a href={% url "filelist"%}>My Files</a>
+            <a href={% url "userpage"%}>Account</a>
             <a href="">Logout</a>
         </div> 
         <div class="main-body">
             <div class="content">
-                <p>
+                <h1>
                     Welcome to our <b><u style="color: #4CAF50">Dropbox Clone</u></b>!
-                </p>
+                </h1>
                 <p>
-                    Created by Malik, Mustafa, and Koren!
+                    Created by Mike, Mustafa, and Koren!
                 </p>
                 <p>
                     Reasons why we chose Dropbox clone:
