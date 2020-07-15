@@ -1,10 +1,43 @@
 <!DOCTYPE html>
+    {% load static %}
 <head>
+    <title>Dropbox Clone</title>
+    <link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 </head>
 <body>
-<h1 id = "header">DropBox Clone </h1>
-<a href="/logout/"><button>logout</button></a>
 
+    <div class="main">
+        <div class="page-header">
+            <h1>DropBox Clone </h1>
+        </div>
+        <div class="topnav">
+            <a href="">Home</a>
+            <a href="">My Files</a>
+            <a href="">Account</a>
+            <a href="">Logout</a>
+        </div> 
+        <div class="main-body">
+            <div class="content">
+                <p>
+                    Welcome to our <b><u style="color: #4CAF50">Dropbox Clone</u></b>!
+                </p>
+                <p>
+                    Created by Malik, Mustafa, and Koren!
+                </p>
+                <p>
+                    Reasons why we chose Dropbox clone:
+                    <ol>
+                        <li>Reasons for Mike.</li>
+                        <li>Reasons for Mustafa</li>
+                        <li>Reasons for Koren</li>
+                    </ol>    
+                </p>
+            </div>
+        </div>
 
+        {% comment %} this is where all our date will be placed {% endcomment %}
+    </div>
+    
 </body>
 </html>
