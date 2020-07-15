@@ -7,29 +7,18 @@ from .models import FileObject
 from .forms import AddFileForm, AddFolderForm
 
 
-<<<<<<< HEAD
-# Create your views here.
 def landingpage(request):
     return render(request, 'landingpage.html')
 
-def file_list(request):
-        return render(request, 'filelist.html')
 
-        
-
-
-# error views for custom error pages 
+# error views for custom error pages
 
 def error_404(request, exception):
-        return render(request,'404.html', status=404)
+    return render(request, '404.html', status=404)
+
 
 def error_500(request):
-        return render(request,'500.html', status=500)
-
-
-=======
-def index_view(request):
-    return render(request, 'landingpage.html')
+    return render(request, '500.html', status=500)
 
 
 class FileListView(ListView):
@@ -68,4 +57,3 @@ def folderadd(request):
         else:
             form = AddFileForm()
     return render(request, html, {"form": form})
->>>>>>> Upload file seems to work
