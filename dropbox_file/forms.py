@@ -3,9 +3,11 @@ from .models import FileObject
 from django.forms import ModelForm
 
 
-class AddFolderForm(forms.Form):
-    filename = forms.CharField(max_length=50, help_text='*Required')
-    parent = forms.ModelChoiceField(queryset=FileObject.objects.all())
+class AddFolderForm(ModelForm):
+    class Meta:
+        model = FileObject
+        fields = ['filename', 'parent']
+        exclude = ['uploaded_by', 'uploaded_file']
 
 
 # Citation:

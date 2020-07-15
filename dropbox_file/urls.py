@@ -14,8 +14,12 @@ urlpatterns = [
     path('', views.index_view, name="landingpage"),
     path('filelist/', views.FileListView.as_view(), name="file-list"),
     path('filelist/file-add/', views.fileadd, name="file-add"),
+<<<<<<< HEAD
     path('folder-add/', views.folderadd, name="folder-add")
 >>>>>>> Upload file seems to work
+=======
+    path('filelist/folder-add/', views.folderadd, name="folder-add")
+>>>>>>> Create folder seems to work
 
 ]
 
