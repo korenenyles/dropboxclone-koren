@@ -7,7 +7,9 @@ from django.shortcuts import render, reverse, HttpResponseRedirect, \
     HttpResponse
 
 
-__author__ = ["https://simpleisbetterthancomplex.com/tips/2016/09/06/django-tip-14-messages-framework.html"]
+__author__ = ["mprrodhan",
+            "https://simpleisbetterthancomplex.com/tips/2016/09/06/django-tip-14-messages-framework.html",
+            "mailkMAlna"]
 
 class LoginView(View):
     def get(self, request):
