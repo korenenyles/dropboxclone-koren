@@ -14,7 +14,7 @@ __author__ = [
 
 
 class DropBoxUserManager(BaseUserManager):
-    def create_user(self, username, email, password=None):
+    def create_user(self, email, username, password=None):
         if not username:
             ValueError("Must register with a Username")
         if not email:
