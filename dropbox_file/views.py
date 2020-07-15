@@ -1,10 +1,10 @@
 from django.shortcuts import render
 
 # Create your views here.
-def index_view(request):
+def landingpage(request):
     return render(request, 'landingpage.html')
 
-def file_list_view(request):
+def file_list(request):
         return render(request, 'filelist.html')
 
         

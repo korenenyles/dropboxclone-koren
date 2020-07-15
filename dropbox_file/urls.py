@@ -6,8 +6,8 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('', views.index_view, name="landingpage"),
-    path('filelist/', views.file_list_view, name="filelist")
+    path('', views.landingpage, name="landingpage"),
+    path('filelist/', views.file_list, name="filelist")
     
 
 ]
