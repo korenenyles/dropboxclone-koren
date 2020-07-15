@@ -31,9 +31,6 @@
 <ul>
 {% if user.is_authenticated %}
 {% load mptt_tags %}
-    {% if node is null %}
-    <p>Please upload a folder/file.</p>
-    {% endif %}
 <ul>
     {% recursetree files %}
         <li>
