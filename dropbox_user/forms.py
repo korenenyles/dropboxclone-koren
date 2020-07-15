@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # from django import forms
 # from django.contrib.auth.forms import ReadOnlyPasswordHashField
 # from dropbox_user.models import DropBoxUser, DropBoxUserManager
@@ -78,7 +77,6 @@
 
 #         return self.initial['password']
 
-=======
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from dropbox_user.models import DropBoxUser, DropBoxUserManager
@@ -144,4 +142,3 @@ class DropBoxUserAdminChangeForm(forms.ModelForm):
 
     def init_password(self):
         return self.initial['password']
->>>>>>> form and admin fixes from earlier
