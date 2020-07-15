@@ -1,4 +1,5 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect, HttpResponse
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from authentication.forms import LoginForm, SignUpForm
 from django.views.generic import View
@@ -29,20 +30,45 @@ class LogoutView(View):
 class SignUpView(View):
     def get(self, request):
         form = SignUpForm()
+        # context['signup_form'] = form
         return render(request, "general_form.html", {"form": form})
-    
+
     def post(self, request):
         form = SignUpForm(request.POST)
         if form.is_valid():
-            data = form.cleaned_data
-            if data['password1'] != data['password2']:
-                return HttpResponse("Please enter a password!")
-            user = DropBoxUser.objects.create_user(
-                    email = data["email"],
-                    password = data["password1"],
-                    # password2 = data["password2"],
-                    username = data["username"]
+            form.save()
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password1')
+            username = form.cleaned_data.get('username')
+            register = authenticate(
+                email,
+                password=password,
+                username=username
             )
-            if user:
-                login(request, user)
-                return HttpResponseRedirect(reverse("loginpage"))
+            login(request, register)
+            return HttpResponseRedirect(
+                request.GET.get('next', reverse('loginpage'))
+            )
+        else:
+            return render(request, "general_form.html", {"form": form})
+
+# class SignUpView(View):
+#     def get(self, request):
+#         form = SignUpForm()
+#         return render(request, "general_form.html", {"form": form})
+
+#     def post(self, request):
+#         form = SignUpForm(request.POST)
+#         if form.is_valid():
+#             data = form.cleaned_data
+#             if data['password1'] != data['password2']:
+#                 return HttpResponse("Please enter a password!")
+#             user = DropBoxUser.objects.create_user(
+#                     email = data["email"],
+#                     password = data["password1"],
+#                     # password2 = data["password2"],
+#                     username = data["username"]
+#             )
+#             if user:
+#                 login(request, user)
+#                 return HttpResponseRedirect(reverse("loginpage"))
