@@ -19,7 +19,7 @@ from django.contrib.auth.admin import UserAdmin
 class DropBoxUserAdmin(UserAdmin):
     list_display = ('email', 'display_name', 'created_at',
                     'is_active', 'is_staff', 'is_admin')
-    search_fields = ('email', 'display_name')
+    search_fields = ('email', 'display_name', 'username')
     readonly_fields = ('created_at', 'is_active')
 
     filter_horizontal = ()
