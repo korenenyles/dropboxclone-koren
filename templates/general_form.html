@@ -12,7 +12,6 @@
             <h1>DropBox Clone </h1>
         </div>
         <div class="topnav">
-<<<<<<< HEAD
             <a href={%url "landingpage"%}>Home</a>
             <a href={% url "filelist"%}>My Files</a>
             <a href={% url "userpage"%}>Account</a>
@@ -23,7 +22,7 @@
             <div class="content">
             
                 <h1 id = "header">DropBox Clone </h1>
-                <form action="" method="post">
+                <form action="" method="post", enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <input type="submit" value="Submit">
@@ -32,24 +31,6 @@
                 <br />
                 <a href="/">Return To The Homepage</a>
             </div>
-=======
-            <a class="" href="#home">Home</a>
-            <a href="{% url 'file-list'%}">My Files</a>
-            <a href="">Account</a>
-            <a href="">Logout</a>
-        </div> 
-
-        <div>
-          <h1 id = "header">DropBox Clone </h1>
-          <form action="" method="post", enctype="multipart/form-data">
-              {% csrf_token %}
-              {{ form.as_p }}
-              <input type="submit" value="Submit">
-          </form>
-          <br />
-          <br />
-          <a href="/">Return To The Homepage</a>
->>>>>>> Upload file seems to work
         </div>
 
 
