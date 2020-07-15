@@ -2,7 +2,8 @@
 # from django.contrib import admin
 # from django.contrib.auth import UserAdmin
 # from dropbox_user.models import DropBoxUser, DropBoxUserManager
-# from dropbox_user.forms import RegisterForm, UserAdminCreationForm, UserAdminChangeForm
+# from dropbox_user.forms import RegisterForm, UserAdminCreationForm,
+# UserAdminChangeForm
 
 # class DropBoxUserAdminForm(UserAdmin):
 #     form = UserAdminChangeForm

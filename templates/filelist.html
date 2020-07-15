@@ -11,6 +11,7 @@
             <h1>DropBox Clone </h1>
         </div>
         <div class="topnav">
+<<<<<<< HEAD
             <a href={%url "landingpage"%}>Home</a>
             <a href={% url "filelist"%}>My Files</a>
             <a href={% url "userpage"%}>Account</a>
@@ -21,6 +22,39 @@
                 <h1>My Files:</h1>
             </div>
         </div>
+=======
+            <a class="" href="/">Home</a>
+            <a href="{% url 'file-list'%}">My Files</a>
+            <a href="">Account</a>
+            <a href="">Logout</a>
+        </div> 
+<ul>
+{% if user.is_authenticated %}
+{% load mptt_tags %}
+    {% if node is null %}
+    <p>Please upload a folder/file.</p>
+    {% endif %}
+<ul>
+    {% recursetree files %}
+        <li>
+            {{ node.filename }}
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+<br>
+<br>
+{% endif %}
+</ul>
+<br>
+<br>
+<a href="{% url 'file-add'%}">Add A File</a>
+<a href="{% url 'folder-add'%}">Create A Folder</a>
+>>>>>>> Upload file seems to work
 
 
 

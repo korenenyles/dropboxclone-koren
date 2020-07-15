@@ -10,7 +10,8 @@ class FileObject(MPTTModel):
         related_name="uploader",
         on_delete=models.CASCADE
     )
-    uploaded_file = models.FileField(blank=True, null=True)
+    uploaded_file = models.FileField(
+        blank=True, null=True, upload_to='files/')
     parent = TreeForeignKey(
         'self',
         on_delete=models.CASCADE,

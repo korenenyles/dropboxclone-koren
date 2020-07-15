@@ -6,9 +6,16 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+<<<<<<< HEAD
     path('', views.landingpage, name="landingpage"),
     path('filelist/', views.file_list, name="filelist")
     
+=======
+    path('', views.index_view, name="landingpage"),
+    path('filelist/', views.FileListView.as_view(), name="file-list"),
+    path('filelist/file-add/', views.fileadd, name="file-add"),
+    path('folder-add/', views.folderadd, name="folder-add")
+>>>>>>> Upload file seems to work
 
 ]
 
