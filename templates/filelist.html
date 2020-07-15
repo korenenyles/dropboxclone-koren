@@ -26,7 +26,11 @@
 {% load mptt_tags %}
     {% recursetree files %}
         <li>
+        {% if node.uploaded_file %}
             <a href="/files/{{node.uploaded_file}}">{{ node.filename }}</a>
+        {% else %}
+        {{ node.filename }}
+        {% endif %}
             {% if not node.is_leaf_node %}
                 <ul class="children">
                     {{ children }}
