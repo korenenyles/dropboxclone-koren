@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, HttpResponseRedirect
+from django.shortcuts import render, reverse, HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from authentication.forms import LoginForm, SignUpForm
 from django.views.generic import View
@@ -35,15 +35,14 @@ class SignUpView(View):
         form = SignUpForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
+            if data['password1'] != data['password2']:
+                return HttpResponse("Please enter a password!")
             user = DropBoxUser.objects.create_user(
                     email = data["email"],
-                    password = data["password"],
-                    # confirm_password = data["confirm_password"],
+                    password = data["password1"],
+                    # password2 = data["password2"],
                     username = data["username"]
             )
-            # if password and confirm_password and password != confirm_password:
-            #     raise forms.ValidationError('Passwords do not match')
-            # return confirm_password
             if user:
                 login(request, user)
                 return HttpResponseRedirect(reverse("loginpage"))
