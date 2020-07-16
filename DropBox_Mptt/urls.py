@@ -14,14 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.conf import settings
+from django.urls import path, include
+from django.conf.urls import handler404, handler500
 from dropbox_user.urls import urlpatterns as user_urls
 from dropbox_file.urls import urlpatterns as file_urls
 from authentication.urls import urlpatterns as auth_urls
+from dropbox_file import views as error_views
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+   
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = error_views.error_404
+handler500 = error_views.error_500
+
 
 urlpatterns += user_urls
 urlpatterns += file_urls
