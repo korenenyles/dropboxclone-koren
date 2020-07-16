@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect
 from django.contrib import messages
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, DetailView, CreateView
 
 
 from .models import FileObject
@@ -25,6 +25,11 @@ class FileListView(ListView):
     model = FileObject
     context_object_name = 'files'
     template_name = 'filelist.html'
+
+
+class FileDetailView(DetailView):
+    model = FileObject
+    context_object_name = 'file_object'
 
 
 class AddFileView(CreateView):
@@ -61,3 +66,41 @@ class AddFolderView(CreateView):
         else:
             form = AddFolderForm()
         return render(request, {"form": form})
+
+
+def file_edit(request, id=id):
+    file_item = FileObject.objects.get(id=id)
+    if request.method == "POST":
+        form = AddFileForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            file_item.filename = data['filename']
+            file_item.parent = data['parent']
+            file_item.save()
+            return HttpResponseRedirect(
+                reverse('filelist')
+            )
+    form = AddFileForm(initial={
+        'filename': file_item.filename,
+        'parent': file_item.parent,
+    })
+    return render(request, "general_form.html", {"form": form})
+
+
+def folder_edit(request, id=id):
+    folder_item = FileObject.objects.get(id=id)
+    if request.method == "POST":
+        form = AddFolderForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            folder_item.filename = data['filename']
+            folder_item.parent = data['parent']
+            folder_item.save()
+            return HttpResponseRedirect(
+                reverse('filelist')
+            )
+    form = AddFolderForm(initial={
+        'filename': folder_item.filename,
+        'parent': folder_item.parent,
+    })
+    return render(request, "general_form.html", {"form": form})
