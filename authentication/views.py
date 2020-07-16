@@ -7,7 +7,8 @@ from dropbox_user.models import DropBoxUser
 
 __author__ = ["mprrodhan",
             "https://simpleisbetterthancomplex.com/tips/2016/09/06/django-tip-14-messages-framework.html",
-            "mailkMAlna"]
+            "mailkMAlna",
+            "peter marsh"]
 
 class LoginView(View):
     def get(self, request):
@@ -34,7 +35,6 @@ class LogoutView(View):
 class SignUpView(View):
     def get(self, request):
         form = SignUpForm()
-        # context['signup_form'] = form
         return render(request, "general_form.html", {"form": form})
 
     def post(self, request):
