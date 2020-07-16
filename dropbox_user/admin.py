@@ -2,7 +2,8 @@
 # from django.contrib import admin
 # from django.contrib.auth import UserAdmin
 # from dropbox_user.models import DropBoxUser, DropBoxUserManager
-# from dropbox_user.forms import RegisterForm, UserAdminCreationForm, UserAdminChangeForm
+# from dropbox_user.forms import RegisterForm, UserAdminCreationForm,
+# UserAdminChangeForm
 
 # class DropBoxUserAdminForm(UserAdmin):
 #     form = UserAdminChangeForm
@@ -19,7 +20,7 @@ from django.contrib.auth.admin import UserAdmin
 class DropBoxUserAdmin(UserAdmin):
     list_display = ('email', 'display_name', 'created_at',
                     'is_active', 'is_staff', 'is_admin')
-    search_fields = ('email', 'display_name')
+    search_fields = ('email', 'display_name', 'username')
     readonly_fields = ('created_at', 'is_active')
 
     filter_horizontal = ()

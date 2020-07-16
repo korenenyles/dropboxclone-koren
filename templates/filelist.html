@@ -21,14 +21,32 @@
                 <h1>My Files:</h1>
             </div>
         </div>
-
-
-
-
-
-
-
-        {% comment %} this is where all our date will be placed {% endcomment %}
+<ul>
+{% if user.is_authenticated %}
+{% load mptt_tags %}
+    {% recursetree files %}
+        <li>
+        {% if node.uploaded_file %}
+            <a href="/files/{{node.uploaded_file}}">{{ node.filename }}</a>
+        {% else %}
+        {{ node.filename }}
+        {% endif %}
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+<br>
+<br>
+{% endif %}
+</ul>
+<br>
+<br>
+<a href="{% url 'file-add'%}">Add A File</a>
+<a href="{% url 'folder-add'%}">Create A Folder</a>
     </div>
     
 </body>

@@ -1,5 +1,4 @@
-from django.urls import path, include
-from django.contrib import admin
+from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -7,11 +6,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.landingpage, name="landingpage"),
-    path('filelist/', views.file_list, name="filelist")
-    
+    path('filelist/', views.FileListView.as_view(), name="filelist"),
+    path('filelist/file-add/', views.fileadd, name="file-add"),
+    path('filelist/folder-add/', views.folderadd, name="folder-add"),
 
 ]
-
 
 
 if settings.DEBUG:
