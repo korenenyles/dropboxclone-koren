@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect
 from django.contrib import messages
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 
 
 from .models import FileObject
@@ -27,10 +27,12 @@ class FileListView(ListView):
     template_name = 'filelist.html'
 
 
-def fileadd(request):
-    html = 'general_form.html'
-    form = AddFileForm()
-    if request.method == "POST":
+class AddFileView(CreateView):
+    model = FileObject
+    fields = ('filename', 'uploaded_file', 'parent')
+    template_name = 'general_form.html'
+
+    def post(self, request):
         form = AddFileForm(request.POST, request.FILES)
         if form.is_valid():
             new_file = form.save(commit=False)
@@ -40,14 +42,16 @@ def fileadd(request):
             return HttpResponseRedirect(reverse('filelist'))
         else:
             form = AddFileForm()
-    return render(request, html, {"form": form})
+        return render(request, {"form": form})
 
 
-def folderadd(request):
-    html = 'general_form.html'
-    form = AddFolderForm()
-    if request.method == "POST":
-        form = AddFolderForm(request.POST, request.FILES)
+class AddFolderView(CreateView):
+    model = FileObject
+    fields = ('filename', 'parent')
+    template_name = 'general_form.html'
+
+    def post(self, request):
+        form = AddFolderForm(request.POST)
         if form.is_valid():
             new_file = form.save(commit=False)
             new_file.uploaded_by = request.user
@@ -55,5 +59,5 @@ def folderadd(request):
             messages.info(request, "Folder created successfully!")
             return HttpResponseRedirect(reverse('filelist'))
         else:
-            form = AddFileForm()
-    return render(request, html, {"form": form})
+            form = AddFolderForm()
+        return render(request, {"form": form})
