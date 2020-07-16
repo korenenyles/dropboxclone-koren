@@ -1,9 +1,9 @@
-from django.views.generic import ListView, DetailView, CreateView, \
-    UpdateView
-from django.contrib import messages
+from django.shortcuts import render, reverse, HttpResponseRedirect
 from .forms import AddFileForm, AddFolderForm
 from .models import FileObject
-from django.shortcuts import render, reverse, HttpResponseRedirect
+from django.views.generic import ListView, CreateView, \
+    UpdateView
+from django.contrib import messages
 
 
 def landingpage(request):
@@ -25,11 +25,6 @@ class FileListView(ListView):
     model = FileObject
     context_object_name = 'files'
     template_name = 'filelist.html'
-
-
-class FileDetailView(DetailView):
-    model = FileObject
-    context_object_name = 'file_object'
 
 
 class AddFileView(CreateView):

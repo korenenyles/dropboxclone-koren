@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+<<<<<<< HEAD
     path('',
          views.landingpage,
          name="landingpage"),
@@ -26,6 +27,14 @@ urlpatterns = [
     path('file/delete/<int:id>',
          views.file_delete,
          name='file-delete'),
+=======
+    path('', views.landingpage, name="landingpage"),
+    path('filelist/', views.FileListView.as_view(), name="filelist"),
+    path('filelist/file-add/', views.AddFileView.as_view(), name="file-add"),
+    path('filelist/folder-add/', views.AddFolderView.as_view(),
+         name="folder-add"),
+
+>>>>>>> Switched out function views for file/folder creation to generic class create views
 ]
 
 
