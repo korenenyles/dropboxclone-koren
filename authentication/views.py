@@ -1,9 +1,10 @@
-from django.shortcuts import render, reverse, HttpResponseRedirect, HttpResponse
-from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from authentication.forms import LoginForm, SignUpForm
-from django.views.generic import View
 from dropbox_user.models import DropBoxUser
+from django.views.generic import View
+from authentication.forms import LoginForm, SignUpForm
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, reverse, HttpResponseRedirect, \
+    HttpResponse
+
 
 __author__ = ["mprrodhan",
             "https://simpleisbetterthancomplex.com/tips/2016/09/06/django-tip-14-messages-framework.html",
@@ -23,15 +24,19 @@ class LoginView(View):
             user = authenticate(request,
                                 email=data["email"],
                                 password=data["password"]
-            )
+                                )
             if user:
                 login(request, user)
-            return HttpResponseRedirect(request.GET.get('next', reverse("landingpage")))
+                return HttpResponseRedirect(request
+                                            .GET.get('next',
+                                                     reverse("landingpage")))
+
 
 class LogoutView(View):
     def get(self, request):
         logout(request)
         return HttpResponseRedirect(reverse("loginpage"))
+
 
 class SignUpView(View):
     def get(self, request):

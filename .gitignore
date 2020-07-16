@@ -24,7 +24,7 @@
 __pycache__/
 poetry.lock
 local_settings.py
-db.sqlite3
+db.*
 db.sqlite3-journal
 media
 files
