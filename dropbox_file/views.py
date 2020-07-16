@@ -75,14 +75,12 @@ def file_edit(request, id=id):
         if form.is_valid():
             data = form.cleaned_data
             file_item.filename = data['filename']
-            file_item.parent = data['parent']
+            # file_item.parent = data['parent']
             file_item.save()
-            return HttpResponseRedirect(
-                reverse('filelist')
-            )
+            return HttpResponseRedirect(reverse('filelist'))
     form = AddFileForm(initial={
         'filename': file_item.filename,
-        'parent': file_item.parent,
+        # 'parent': file_item.parent,
     })
     return render(request, "general_form.html", {"form": form})
 
@@ -94,13 +92,11 @@ def folder_edit(request, id=id):
         if form.is_valid():
             data = form.cleaned_data
             folder_item.filename = data['filename']
-            folder_item.parent = data['parent']
+            # folder_item.parent = data['parent']
             folder_item.save()
-            return HttpResponseRedirect(
-                reverse('filelist')
-            )
+            return HttpResponseRedirect(reverse('filelist'))
     form = AddFolderForm(initial={
         'filename': folder_item.filename,
-        'parent': folder_item.parent,
+        # 'parent': folder_item.parent,
     })
     return render(request, "general_form.html", {"form": form})
