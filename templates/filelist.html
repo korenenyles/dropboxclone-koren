@@ -27,9 +27,9 @@
     {% recursetree files %}
         <li>
         {% if node.uploaded_file %}
-            <a href="/files/{{node.uploaded_file}}">{{ node.filename }}</a> <a href="/file/edit/{{node.id}}">Edit File</a>
+            <a href="/files/{{node.uploaded_file}}">{{ node.filename }}</a> <a href="/file/edit/{{node.id}}">Rename File</a>
         {% else %}
-        {{ node.filename }} <a href="/folder/edit/{{node.id}}">Edit Folder</a>
+        {{ node.filename }} <a href="/folder/edit/{{node.id}}">Rename Folder</a>
         {% endif %}
             {% if not node.is_leaf_node %}
                 <ul class="children">
