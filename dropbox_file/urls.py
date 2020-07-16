@@ -7,8 +7,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.landingpage, name="landingpage"),
     path('filelist/', views.FileListView.as_view(), name="filelist"),
-    path('filelist/file-add/', views.fileadd, name="file-add"),
-    path('filelist/folder-add/', views.folderadd, name="folder-add"),
+    path('filelist/file-add/', views.AddFileView.as_view(), name="file-add"),
+    path('filelist/folder-add/', views.AddFolderView.as_view(),
+         name="folder-add"),
 
 ]
 
