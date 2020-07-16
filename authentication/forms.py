@@ -3,16 +3,17 @@ from django.contrib.auth.forms import UserCreationForm
 from dropbox_user.models import DropBoxUser
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(max_length=30)
+    email = forms.EmailField(max_length=60)
     password = forms.CharField(widget=forms.PasswordInput)
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=60,
         help_text="A valid email address is required")
+    # password2 = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
         model = DropBoxUser
-        fields = ('email', 'password1', 'password2', 'username')
+        fields = ('email', 'username','password1', 'password2')
 
 # class SignUpForm(forms.Form):
 #     email = forms.EmailField(max_length=30)
