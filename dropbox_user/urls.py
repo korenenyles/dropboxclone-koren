@@ -3,5 +3,5 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    path('userpage/', views.userpage, name="userpage")
+    path('userpage/<int:id>/', views.userpage, name="userpage")
 ]

@@ -53,7 +53,7 @@ def folderadd(request):
             new_file.uploaded_by = request.user
             new_file.save()
             messages.info(request, "Folder created successfully!")
-            return HttpResponseRedirect(reverse('filelist'))
+            return HttpResponseRedirect(reverse('filelist', kwargs={"id": new_file.id}))
         else:
             form = AddFileForm()
     return render(request, html, {"form": form})
