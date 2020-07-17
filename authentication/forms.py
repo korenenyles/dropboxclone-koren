@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from dropbox_user.models import DropBoxUser
 
+
 class LoginForm(forms.Form):
     email = forms.EmailField(max_length=60)
     password = forms.CharField(widget=forms.PasswordInput)
