@@ -20,12 +20,12 @@ urlpatterns = [
     path('filelist/folder-add/',
          views.AddFolderView.as_view(),
          name="folder-add"),
-    path('file/edit/<int:id>',
-         views.file_edit,
+    path('file/edit/<int:pk>',
+         views.EditFileView.as_view(),
          name='file-edit'),
-    path('folder/edit/<int:id>',
-         views.folder_edit,
-         name='folder-edit'),
+    path('file/delete/<int:id>',
+         views.file_delete,
+         name='file-delete'),
 ]
 
 
