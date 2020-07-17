@@ -1,9 +1,16 @@
+from django.contrib import messages
 from dropbox_user.models import DropBoxUser
 from django.views.generic import View
 from authentication.forms import LoginForm, SignUpForm
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, reverse, HttpResponseRedirect, \
     HttpResponse
+
+
+__author__ = ["mprrodhan",
+            "https://simpleisbetterthancomplex.com/tips/2016/09/06/django-tip-14-messages-framework.html",
+            "mailkMAlna",
+            "peter marsh"]
 
 
 class LoginView(View):
@@ -40,15 +47,19 @@ class SignUpView(View):
     def post(self, request):
         form = SignUpForm(request.POST)
         if form.is_valid():
-            data = form.cleaned_data
-            if data['password1'] != data['password2']:
-                return HttpResponse("Please enter a password!")
-            user = DropBoxUser.objects.create_user(
-                email=data["email"],
-                password=data["password1"],
-                # password2 = data["password2"],
-                username=data["username"]
+            form.save()
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password1')
+            username = form.cleaned_data.get('username')
+            user = authenticate(
+                email,
+                password=password,
+                username=username
             )
             if user:
                 login(request, user)
-                return HttpResponseRedirect(reverse("loginpage"))
+            return HttpResponseRedirect(
+                request.GET.get('next', reverse('loginpage'))
+            )
+        else:
+            return render(request, "general_form.html", {"form": form})

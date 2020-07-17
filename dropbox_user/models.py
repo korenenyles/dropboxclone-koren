@@ -1,16 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-'''
+
 __author__ = [
-    mprodhan,
-    https://stackoverflow.com/questions/58558989/what-does-djangos-property-do,
-    https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-user-model/
-    ] += [MalikMAlna,
-    Consider using this to login with the an email or a username,
-    https://stackoverflow.com/questions/31370118/multiple-username-field-in-django-user-model
+    "mprodhan",
+    "https://stackoverflow.com/questions/58558989/what-does-djangos-property-do",
+    "https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-user-model/"
+    ], ["MalikMAlna",
+    "Consider using this to login with the an email or a username",
+    "https://stackoverflow.com/questions/31370118/multiple-username-field-in-django-user-model"
     ]
-'''
+
 
 
 class DropBoxUserManager(BaseUserManager):
