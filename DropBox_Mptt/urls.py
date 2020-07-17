@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf import settings
-from django.urls import path, include
+from django.urls import path
 from django.conf.urls import handler404, handler500
 from dropbox_user.urls import urlpatterns as user_urls
 from dropbox_file.urls import urlpatterns as file_urls
@@ -25,8 +25,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-   
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 handler404 = error_views.error_404
 handler500 = error_views.error_500
