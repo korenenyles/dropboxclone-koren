@@ -20,6 +20,7 @@ def error_500(request):
     return render(request, '500.html', status=500)
 
 
+# This should count for a FileObject.objects.all()
 class FileListView(ListView):
     model = FileObject
     context_object_name = 'files'
