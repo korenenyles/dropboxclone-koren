@@ -1,9 +1,9 @@
+from django.shortcuts import render, reverse, HttpResponseRedirect
+from django.contrib import messages
+from .models import FileObject
+from .forms import AddFileForm, AddFolderForm
 from django.views.generic import ListView, CreateView, \
     UpdateView
-from .forms import AddFileForm, AddFolderForm
-from .models import FileObject
-from django.contrib import messages
-from django.shortcuts import render, reverse, HttpResponseRedirect
 
 
 def landingpage(request):
