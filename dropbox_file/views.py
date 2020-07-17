@@ -1,14 +1,16 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect
 from django.contrib import messages
 from django.views.generic import ListView
-
-
 from .models import FileObject
 from .forms import AddFileForm, AddFolderForm
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+from dropbox_user.models import DropBoxUser
 
-
+@login_required
 def landingpage(request):
-    return render(request, 'landingpage.html')
+    user_data = DropBoxUser.objects.all()
+    return render(request, 'landingpage.html', {user_data: 'user_data'})
 
 
 # error views for custom error pages
@@ -20,14 +22,16 @@ def error_404(request, exception):
 def error_500(request):
     return render(request, '500.html', status=500)
 
-
+@method_decorator(login_required, name='dispatch')
 class FileListView(ListView):
+    
     model = FileObject
     context_object_name = 'files'
     template_name = 'filelist.html'
 
 
 def fileadd(request):
+    
     html = 'general_form.html'
     form = AddFileForm()
     if request.method == "POST":
@@ -42,7 +46,7 @@ def fileadd(request):
             form = AddFileForm()
     return render(request, html, {"form": form})
 
-
+@login_required
 def folderadd(request):
     html = 'general_form.html'
     form = AddFolderForm()

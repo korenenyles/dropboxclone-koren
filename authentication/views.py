@@ -4,6 +4,8 @@ from authentication.forms import LoginForm, SignUpForm
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, reverse, HttpResponseRedirect, \
     HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 class LoginView(View):
@@ -24,9 +26,9 @@ class LoginView(View):
                 return HttpResponseRedirect(request
                                             .GET.get('next',
                                                      reverse("landingpage")))
-
-
+        
 class LogoutView(View):
+    @method_decorator(login_required)
     def get(self, request):
         logout(request)
         return HttpResponseRedirect(reverse("loginpage"))
