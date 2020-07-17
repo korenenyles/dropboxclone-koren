@@ -19,8 +19,7 @@
         <div class="main-body">
             <div class="content">
                 <h1>My Files:</h1>
-            </div>
-        </div>
+            
 <ul>
 {% if user.is_authenticated %}
 {% load mptt_tags %}
@@ -49,9 +48,10 @@
 </ul>
 <br>
 <br>
-<a href="{% url 'file-add'%}">Add A File</a>
-<a href="{% url 'folder-add'%}">Create A Folder</a>
+<a href="{% url 'file-add'%}"><button>Add A File</button></a>
+<a href="{% url 'folder-add'%}"><button>Create A Folder</button></a>
     </div>
-    
+</div>
+</div>
 </body>
 </html>

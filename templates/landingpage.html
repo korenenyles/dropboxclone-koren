@@ -17,10 +17,11 @@
             <a href="/userpage/{{request.user.id}}">Account</a>
             <a href="">Logout</a>
         </div> 
+        {% if user.is_authenticated%}
         <div class="main-body">
             <div class="content">
                 <h1>
-                    Welcome to our <b><u style="color: #4CAF50">Dropbox Clone</u></b>!
+                    Welcome <b><u style="color: #4CAF50">{{user.username}}</u></b> to our DropBox Clone!
                 </h1>
                 <p>
                     Created by Mike, Mustafa, and Koren!
@@ -38,6 +39,7 @@
 
         {% comment %} this is where all our date will be placed {% endcomment %}
     </div>
+    {% endif %}
     
 </body>
 </html>
