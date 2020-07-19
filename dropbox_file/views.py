@@ -4,8 +4,10 @@ from .models import FileObject
 from .forms import AddFileForm, AddFolderForm
 from django.views.generic import ListView, CreateView, \
     UpdateView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
-
+@login_required
 def landingpage(request):
     return render(request, 'landingpage.html')
 
