@@ -4,6 +4,7 @@
     <title>Dropbox Clone</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/landingpage.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+    
 </head>
 <body>
     <div class="main">
@@ -23,38 +24,39 @@
         <div class="main-body">
             <div class="content">
                 <h1>My Files:</h1>
-            </div>
-        </div>
-<ul>
+            
+
 {% if user.is_authenticated %}
 {% load mptt_tags %}
     {% recursetree files %}
-        <li>
+        
         {% if node.uploaded_file %}
-            <a href="/files/{{node.uploaded_file}}">{{ node.filename }}</a> 
-            <a href="/file/edit/{{node.pk}}">Edit File</a> 
-            <a href="/file/delete/{{node.id}}">Delete File</a>
+            <a href="/files/{{node.uploaded_file}}"><div>&#128240;{{ node.filename }}</div></a> 
+            <a href="/file/edit/{{node.pk}}"><button>&#9998;Edit</button></a> 
+            <a href="/file/delete/{{node.id}}"><button>&#128465;Delete</button></a>
         {% else %}
-        {{ node.filename }} 
-        <a href="/file/edit/{{node.pk}}">Edit Folder</a>
-        <a href="/file/delete/{{node.id}}">Delete Folder</a>
+        <div>&#128193;{{ node.filename }} </div> 
+        <a href="/file/edit/{{node.pk}}"><button>&#9998;Edit</button></a>
+        <a href="/file/delete/{{node.id}}"><button>&#128465;Delete</button></a>
         {% endif %}
             {% if not node.is_leaf_node %}
                 <ul class="children">
                     {{ children }}
                 </ul>
             {% endif %}
-        </li>
+        
     {% endrecursetree %}
-</ul>
+
 <br>
 <br>
 {% endif %}
-</ul>
+
 <br>
 <br>
-<a href="{% url 'file-add'%}">Add A File</a>
-<a href="{% url 'folder-add'%}">Create A Folder</a>
+<a href="{% url 'file-add'%}"><button>Add A File</button></a>
+<a href="{% url 'folder-add'%}"><button>Create A Folder</button></a>
+    </div>
+    </div>
     </div>
     
 </body>

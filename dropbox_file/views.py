@@ -10,8 +10,8 @@ from django.utils.decorators import method_decorator
 
 @login_required
 def landingpage(request):
-    dropbox_user = DropBoxUser.objects.all()
-    return render(request, 'landingpage.html', {dropbox_user: "dropbox_user"})
+    user_data = DropBoxUser.objects.all()
+    return render(request, 'landingpage.html', {user_data: "user_data"})
 
 
 # error views for custom error pages
