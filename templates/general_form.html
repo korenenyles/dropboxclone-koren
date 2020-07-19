@@ -15,7 +15,12 @@
             <a href={%url "landingpage"%}>Home</a>
             <a href={% url "filelist"%}>My Files</a>
             <a href={% url "userpage"%}>Account</a>
-            <a href="">Logout</a>
+            
+            {% if user.is_authenticated%}
+            <a href="{% url 'logout' %}">Logout</a>
+            {%else%}
+            <a href="{% url 'signuppage' %}">Sign Up</a>
+            {%endif%}
         </div> 
 
         <div class="main-body">
@@ -29,7 +34,7 @@
                 </form>
                 <br />
                 <br />
-                <a href="/">Return To The Homepage</a>
+               
             </div>
         </div>
 
