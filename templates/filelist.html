@@ -13,7 +13,7 @@
         <div class="topnav">
             <a href={%url "landingpage"%}>Home</a>
             <a href={% url "filelist"%}>My Files</a>
-            <a href={% url "userpage"%}>Account</a>
+            <a href="/userpage/{{request.user.id}}">Account</a>
             <a href="">Logout</a>
         </div> 
         <div class="main-body">
@@ -27,9 +27,13 @@
     {% recursetree files %}
         <li>
         {% if node.uploaded_file %}
-            <a href="/files/{{node.uploaded_file}}">{{ node.filename }}</a>
+            <a href="/files/{{node.uploaded_file}}">{{ node.filename }}</a> 
+            <a href="/file/edit/{{node.pk}}">Edit File</a> 
+            <a href="/file/delete/{{node.id}}">Delete File</a>
         {% else %}
-        {{ node.filename }}
+        {{ node.filename }} 
+        <a href="/file/edit/{{node.pk}}">Edit Folder</a>
+        <a href="/file/delete/{{node.id}}">Delete Folder</a>
         {% endif %}
             {% if not node.is_leaf_node %}
                 <ul class="children">
