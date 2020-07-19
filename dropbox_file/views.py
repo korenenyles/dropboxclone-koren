@@ -4,12 +4,14 @@ from .models import FileObject
 from .forms import AddFileForm, AddFolderForm
 from django.views.generic import ListView, CreateView, \
     UpdateView
+from dropbox_user.models import DropBoxUser
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 @login_required
 def landingpage(request):
-    return render(request, 'landingpage.html')
+    dropbox_user = DropBoxUser.objects.all()
+    return render(request, 'landingpage.html', {dropbox_user: "dropbox_user"})
 
 
 # error views for custom error pages
@@ -21,14 +23,14 @@ def error_404(request, exception):
 def error_500(request):
     return render(request, '500.html', status=500)
 
-
+@method_decorator(login_required, name='dispatch')
 # This should count for a FileObject.objects.all()
 class FileListView(ListView):
     model = FileObject
     context_object_name = 'files'
     template_name = 'filelist.html'
 
-
+@method_decorator(login_required, name='dispatch')
 class AddFileView(CreateView):
     model = FileObject
     fields = ('filename', 'uploaded_file', 'parent')
@@ -46,7 +48,7 @@ class AddFileView(CreateView):
             form = AddFileForm()
         return render(request, {"form": form})
 
-
+@method_decorator(login_required, name='dispatch')
 class AddFolderView(CreateView):
     model = FileObject
     fields = ('filename', 'parent')
@@ -64,7 +66,7 @@ class AddFolderView(CreateView):
             form = AddFolderForm()
         return render(request, {"form": form})
 
-
+@method_decorator(login_required, name='dispatch')
 class EditFileView(UpdateView):
     model = FileObject
     template_name = "general_form.html"
@@ -74,6 +76,7 @@ class EditFileView(UpdateView):
 
 # Citation:
 # https://stackoverflow.com/questions/19754103/django-how-to-delete-an-object-using-a-view
+@login_required
 def file_delete(request, id):
     requested_file = FileObject.objects.get(id=id)
     requested_file.delete()

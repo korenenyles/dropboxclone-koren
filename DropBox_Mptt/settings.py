@@ -142,5 +142,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'files')
 MEDIA_URL = '/files/'
 AUTH_USER_MODEL = 'dropbox_user.DropBoxUser'
-LOGIN_URL = 'login'
+LOGIN_URL = '/login/'
+LOGOUT_URL= '/logout/'
 LOGIN_REDIRECT_URL = '/'
