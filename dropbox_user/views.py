@@ -8,7 +8,7 @@ __author__ = ["mprodhan", "korennyles", "MalikMAlna"]
 @login_required
 def userpage(request, id):
     dropbox_user = DropBoxUser.objects.get(id=id)
-    filename = FileObject.objects.filter(id=id)
+    filename = FileObject.objects.filter(uploaded_by=dropbox_user).count
     return render(request, 'userpage.html',
         {"dropbox_user": dropbox_user, "filename": filename})
 

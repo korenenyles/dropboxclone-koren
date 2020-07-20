@@ -23,7 +23,8 @@ urlpatterns = [
     path('file/delete/<int:id>',
          views.file_delete,
          name='file-delete'),
-         path('500', views.error_500)
+     path('500', views.error_500),
+     
 ]
 
 

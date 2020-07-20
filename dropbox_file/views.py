@@ -29,6 +29,7 @@ class FileListView(ListView):
     context_object_name = 'files'
     template_name = 'filelist.html'
 
+
 @method_decorator(login_required, name='dispatch')
 class AddFileView(CreateView):
     model = FileObject
