@@ -3,6 +3,7 @@
 .topnav {
     background-color: #333;
     overflow: hidden;
+    font-family: 'Montserrat Subrayada', sans-serif;
   }
   
   /* Style the links inside the navigation bar */
@@ -14,6 +15,7 @@
     text-decoration: none;
     font-size: 17px;
     top: 0;
+    
   }
   
   /* Change the color of links on hover */
@@ -21,23 +23,28 @@
     background-color: #4caf50;
     color: black;
     z-index: 1;
+    font-family: 'Montserrat Subrayada', sans-serif;
   }
   
   /* Add a color to the active/current link */
   .topnav a.active {
     background-color: #4CAF50;
     color: white;
+    font-family: 'Montserrat Subrayada', sans-serif;
   }
+  
 
   /* The sticky class is added to the navbar with JS when it reaches its scroll position */
   .sticky {
     position: fixed;
     top: 0;
     width: 100%;
+    font-family: 'Montserrat Subrayada', sans-serif;
 
   }
 
   @viewport {
     width: device-width ;
     zoom: 1.0 ;
+
   } 

@@ -23,9 +23,14 @@ from authentication.urls import urlpatterns as auth_urls
 from dropbox_file import views as error_views
 from django.conf.urls.static import static
 
+
+
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-
+   
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 handler404 = error_views.error_404

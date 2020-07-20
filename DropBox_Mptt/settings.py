@@ -32,14 +32,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = env('DEBUG')
-DEBUG = True
+DEBUG = False
+
 
 ALLOWED_HOSTS = ["*", "127.0.0.1"]
 
 
 # Application definition
-
+#https://www.youtube.com/watch?v=X3agv4E3wOA fixed issue with static files not loading when debug=false
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mptt',
+    'DropBox_Mptt',
     'dropbox_user.apps.DropboxUserConfig',
     'authentication.apps.AuthenticationConfig',
     'dropbox_file.apps.DropboxFileConfig'
@@ -146,3 +147,4 @@ AUTH_USER_MODEL = 'dropbox_user.DropBoxUser'
 LOGIN_URL = '/login/'
 LOGOUT_URL= '/logout/'
 LOGIN_REDIRECT_URL = '/'
+

@@ -14,6 +14,7 @@ body{
 .page-header{
 
     color: #333;
+    font-family: 'Montserrat Subrayada', sans-serif;
 }
 
 .main-body{
@@ -29,13 +30,54 @@ body{
 
 .content{
     border: 5px solid #4CAF50;
-    border-radius: 25%;
+    background-color: #4caf4f28;
+    
+    border-radius: 25px;
     margin: auto;
     padding: 30px;
     text-align: center;
+    
+    width: 750px;
 
 
 }
+
+.description{
+    border: 5px solid #4CAF50;
+    border-radius: 25px;
+    width: 35%;
+    margin-top: 55px;
+    margin-left: 25px;
+    padding:15px;
+    float: left;
+}
+
+.creators{
+    border: 5px solid #4CAF50;
+    border-radius: 25px;
+    width: 35%;
+    padding:15px;
+    float: right;
+    margin-right: 25px;
+    margin-top: 25px;
+}
+
+.whys{
+    
+    
+    border: 5px solid #4CAF50;
+    border-radius: 25px;
+    width: 65%;
+    
+    padding:15px;
+    margin: 0 auto;
+    margin-top: 350px;;
+}
+
+.content-header{
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
+
 
 
 

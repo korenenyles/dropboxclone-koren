@@ -16,12 +16,11 @@ def landingpage(request):
 
 # error views for custom error pages
 
-def error_404(request, exception):
-    return render(request, '404.html', status=404)
-
-
 def error_500(request):
-    return render(request, '500.html', status=500)
+    return render(request, '500.html')
+ 
+def error_404(request, exception):
+    return render(request, '404.html')
 
 @method_decorator(login_required, name='dispatch')
 # This should count for a FileObject.objects.all()

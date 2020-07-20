@@ -4,6 +4,8 @@
     <title>Dropbox Clone</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/landingpage.css' %}" >
     <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Monda&display=swap" rel="stylesheet"> 
 </head>
 <body>
 
@@ -12,32 +14,51 @@
             <h1>DropBox Clone </h1>
         </div>
         <div class="topnav">
-            <a href={%url "landingpage"%}>Home</a>
-            <a href={%url "filelist"%}>My Files</a>
-            <a href="/userpage/{{request.user.id}}">Account</a>
+            <a href={%url "landingpage"%} class="content-header">Home</a>
+            <a href={%url "filelist"%} class="content-header">My Files</a>
             {%if user.is_authenticated%}
-            <a href={%url "logout"%}>Logout</a>
+            <a href="/userpage/{{request.user.id}}" class="content-header">Account</a>
+            <a href={%url "logout"%} class="content-header">Logout</a>
             {% else %}
-            <a href={% url "signuppage"%}>Sign Up</a>
+            <a href={% url "signuppage"%} class="content-header">Sign Up</a>
             {% endif %}
         </div> 
         <div class="main-body">
             <div class="content">
-                <h1>
-                    Welcome <b><u style="color: #4CAF50">{{user.username}}</u></b> to our Dropbox Clone!
+                <h1 class='content-header'>
+                    Welcome <b style="color: #449d48">{{user.username}}</b> to our Dropbox Clone!
                 </h1>
-                <p>
-                    Created by Mike, Mustafa, and Koren!
-                </p>
-                <p>
-                    Reasons why we chose Dropbox clone:
-                    <ol>
-                        <li>Reasons for Mike.</li>
-                        <li>Reasons for Mustafa</li>
-                        <li>Reasons for Koren</li>
-                    </ol>    
-                </p>
-            </div>
+                <hr>
+                
+                <div class="description">
+                <div><h3 class="content-header">What is Dropbox?</div></h3>
+                <hr>
+                
+                <div style="font-family: 'Monda', sans-serif">Dropbox is essentially cloud storage where you can store you files, images, and folders and download them on other devices.</div> 
+                </div>
+                <div class="creators">
+                <p><h2 class="content-header">Creators:</h2></p>
+                <hr>
+                <div style="font-family: 'Monda', sans-serif">
+                    <h4>Mustafa</h4>
+                    <h4>Mike</h4>
+                    <h4>Koren</h4>
+                </div>
+                </div> 
+
+                <div class="whys">
+                    <h2 class="content-header">Reasons From Team:</h2>
+                    <hr>
+                    <div style="font-family: 'Monda', sans-serif">
+                        "We wanted to create an application that would really challenge us and something we hadn't yet worked on this year." - Koren</li>
+                        <br/>
+                        "We wanted to learn and understand how to create a very applicable mptt database, for future reference and to be able to create similar apps." -Mustafa</li>
+                        <br/>
+                        "MIKES REASON HERE" - Mike
+                    </div>
+                      
+                </div>
+            </>
         </div>
 
         {% comment %} this is where all our date will be placed {% endcomment %}
